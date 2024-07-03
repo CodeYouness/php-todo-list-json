@@ -5,7 +5,8 @@ createApp({
     data() {
         return {
             toDoList: [],
-            api: './src/get_task.php'
+            api: './src/get_task.php',
+            newTask: "",
         }
     },
     methods: {
@@ -18,6 +19,13 @@ createApp({
                 .catch(function (error) {
                     console.log(error);
                 })
+        },
+        addTask(newTask) {
+            newObj = {
+                task: newTask
+            };
+            this.toDoList.push(newObj)
+            this.newTask = "";
         }
     },
     created() {

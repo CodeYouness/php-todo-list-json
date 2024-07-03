@@ -2,7 +2,6 @@
 
 $todolist = json_decode(file_get_contents('./src/db.json'), true);
 
-var_dump($todolist);
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,7 @@ var_dump($todolist);
                 {{task.task}}
             </li>
         </ul>
+        <input type="text" name="newTask" id="newTask" @keyup.enter="addTask(newTask)" v-model="newTask">
 
 
     </main>
