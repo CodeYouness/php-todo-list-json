@@ -4,16 +4,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            toDoList: []
+            toDoList: [],
+            api: './src/get_task.php'
         }
     },
     methods: {
         getData() {
-            axios.get('/user', {
-                params: {
-
-                }
-            })
+            axios.get(this.api)
                 .then((response) => {
                     console.log(response);
                     this.toDoList = response.data
@@ -21,10 +18,10 @@ createApp({
                 .catch(function (error) {
                     console.log(error);
                 })
-                .finally(function () {
-                    // always executed
-                });
         }
+    },
+    created() {
+        this.getData()
     }
 }).mount('#app')
 

@@ -19,8 +19,8 @@ var_dump($todolist);
     <main id="app">
         <h1>ToDoList</h1>
         <ul>
-            <li v-for="task in toDoList">
-                {{task}}
+            <li v-for="(task,index) in toDoList">
+                {{task.task}}
             </li>
         </ul>
 
